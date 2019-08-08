@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>毕业生入户</title>
+    <link rel="stylesheet" href="../pages5/out4.css?v=6">
+    <script src="https://cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+</head>
+
+<body>
+    <!-- 头部 -->
+    <div class="out1">
+        <div class="out-title">
+            <a href="#">
+                <div class="pic2">
+                    <image class="pic"
+                        src="https://s.nia.gov.cn/mps/static/images/logo.png">
+                    </image>
+                </div>
+                <div class="decr">
+                    <div class="name">毕业生入户</div>
+                    <div class="small">服务提供：</div>
+                </div>
+                <div class="imgs">
+                    <image class="rg" src="../../images/fg.png"></image>
+                </div>
+        </div>
+        </a>
+    </div>
+    <!-- 内容 -->
+
+    <div class="goverment-content">
+        <div class="cn content-left">
+            <a href="https://wx7.gongsilu.com/app/index.php?i=3&c=entry&do=detail&m=tech_superarticle&id=2629">
+                <image class="pic1" src="../../images/fs/yuyue.png" />
+                <span class="out">个人入户</span>
+            </a>
+
+        </div>
+        <div class="cn content-right">
+            <a href="https://wx7.gongsilu.com/app/index.php?i=3&c=entry&do=detail&m=tech_superarticle&id=2630
+            ">
+                <image class="pic1" src="../../images/fs/banli.png" />
+                <span class="out">单位入户</span>
+            </a>
+
+        </div>
+    </div>
+ 
+    <div class="back">
+            <a href="../pages3/RC.html" class="first">
+                <div class="back-l">
+    
+                    <image class="r-pic" src='../../images/fs/back.png'></image>
+                </div>
+            </a>
+            <a href="../../index1.html" class="second">
+                <div class="back-r">
+                    <image class="l-pic" src="../../images/fs/first.png"></image>
+    
+                </div>
+            </a>
+        </div>
+        <footer class="m-footer">
+            <div class="m-footer__logo">
+                <image class="gif" src="../../images/fs/123.gif" mode="aspectFill" />
+            </div>
+        </footer>
+        <script type="text/javascript" src="https://res2.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+        <script type="text/javascript">
+            var imgUrl = 'https://a.sx.rewifeng.net/logo.png';
+            var lineLink = 'https://a.sx.rewifeng.net/wb/pages1/pages5/biye.html';
+            var descContent = '想要了解毕业生入户详情，尽在松岗微生活';
+            var shareTitle = '松岗微办事';
+            var appid = '';
+    
+            $.ajax({
+                type: 'POST',
+                url: "https://wx7.gongsilu.com/shixi/jsSDKConfig/api.php", //这个地址并非通用且长期有效，请去微信官方查看文档，并自行配置
+                dataType: "json",
+                data: { url: window.location.href },
+                success: function (response) {
+                    var appId = response.appId;
+                    var timestamp = response.timestamp;
+                    var nonceStr = response.nonceStr;
+                    var signature = response.signature;
+    
+                    wx.config({
+                        debug: false,
+                        appId: 'wxb1fc236279647c7e',
+                        timestamp: timestamp,
+                        nonceStr: nonceStr,
+                        signature: signature,
+                        jsApiList: [
+                            'checkJsApi',
+                            'onMenuShareTimeline',
+                            'onMenuShareAppMessage'
+                        ]
+                    });
+                    wx.ready(function () {
+    
+                        wx.onMenuShareTimeline({
+                            title: shareTitle, // 分享标题
+                            link: lineLink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                            imgUrl: imgUrl, // 分享图标
+                            success: function () {
+                                // 用户确认分享后执行的回调函数
+                            },
+                            cancel: function () {
+                                // 用户取消分享后执行的回调函数
+                            }
+                        });
+                        wx.onMenuShareAppMessage({
+                            title: shareTitle, // 分享标题
+                            desc: descContent, // 分享描述
+                            link: lineLink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                            imgUrl: imgUrl, // 分享图标
+                            type: '', // 分享类型,music、video或link，不填默认为link
+                            dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                            success: function () {
+                                // 用户确认分享后执行的回调函数
+    
+                            },
+                            cancel: function () {
+                                // 用户取消分享后执行的回调函数
+                            }
+                        });
+                    });
+                },
+                error: function (response) {
+                    window.parent.growl("删除失败[" + response.responseText + "]!", "error");
+                }
+            });
+        </script>
+</body>
+
+</html>

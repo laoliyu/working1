@@ -1,0 +1,151 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    background-color: #f5f5f5;
+}
+.lunbo-pic{
+    width: 100%;
+    height: 200px;
+}
+.lunbo-pic .pic{
+    width: 100%;
+    height: 200px;
+}
+/* 
+.life {
+    width: 100%;
+    height: 500px;
+} */
+
+/* 图片 */
+
+/* .lunbo {
+    padding: 0px 10px;
+    margin-top: 20px;
+} */
+
+.wrap {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 2px 2px 2px #666;
+}
+
+.wraps {
+    width: 100%;
+    height: 200px;
+}
+
+.wraps img {
+    float: left;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.page {
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+    text-align: center;
+}
+
+.page span {
+    display: inline-block;
+    width: 10px;
+    height: 5px;
+    text-align: center;
+    line-height: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    cursor: pointer;
+}
+
+.page span.current {
+    background: #ffffff;
+}
+
+
+
+/* 下面的内容 */
+
+.content-body {
+    width: 95%;
+    height: 300px;
+    background-color: #fff;
+    z-index: 9999;
+    margin: 0 auto;
+    /* margin-top: -20px; */
+}
+.content-body1 {
+    width: 95%;
+    height: 400px;
+    background-color: #fff;
+    z-index: 9999;
+    margin: 0 auto;
+    /* margin-top: -20px; */
+}
+.content-body2 {
+    width: 95%;
+    height: 400px;
+    background-color: #fff;
+    z-index: 9999;
+    margin: 0 auto;
+    /* margin-top: -20px; */
+}
+
+.content-bd1 {
+    width: 100%;
+    height: 100px;
+    border-bottom: 1px solid #f5f5f5;
+    display: flex;
+}
+
+.pic {
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+}
+
+.content-lf {
+   width: 100%;
+    height: 50px;
+    text-align: center;
+    margin-top: 25px;
+}
+
+.content-rg {
+    height: 50%;
+    position: absolute;
+    right: 20%;
+    text-align: center;
+    margin-top: 25px;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+
+
+.bd-footer {
+    font-size: 15px;
+    color: #d0d0d0;
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+    margin-top: 25px;
+}
+.jd_header{
+    display: flex;
+}
+/* 尾部 */
+.footer{
+    width: 25px;
+    height: 25px;
+    display: block;
+    margin-left: 48%;
+}

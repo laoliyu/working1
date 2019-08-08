@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>深圳农商银行</title>
+    <link rel="stylesheet" href="./demo.css">
+    <script src="https://cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+
+<body>
+    <div class="jd_header">
+        <a href="./bankNS.html" class="second">
+            <div class="back-r">
+                <image class="l-pic" src="../../images/fs/back.png"></image>
+
+            </div>
+        </a>
+        <input type="search" class="header_search" id="valueSearch" placeholder="输入关键字搜索">
+        <i class="header_glass"></i>
+        <a href="../../index1.html" class="first">
+            <div class="back-l">
+
+                <image class="r-pic" src='../../images/fs/first.png' atr="返回上层页面"></image>
+            </div>
+        </a>
+    </div>
+    <div id="eAll" class="all">
+        <!-- 第一张图片 -->
+
+        <!-- <input type="text" id="valueSearch"> -->
+        <!-- 下面打电话的 -->
+        <block v-for="item in items" :key="item.id">
+            <div class="body-tel">
+                <div class="tel-left">
+                    <!-- <span class="name" :onclick="wxOpenLocation('{{item.latitude}}','{{item.longitude}}' ,'人为峰','广东省深圳市宝安区松岗街道山美新村')"> -->
+
+
+                    <span class="num">{{ item.tel }}
+                    </span>
+                    <span class="name">
+                        {{item.itemname}}</span>
+                </div>
+                <div class="tel-right">
+                    <!-- <a v-bind="{{href:'tel':'item.tel'}}"> -->
+                    <a :href='"tel:" + item.tel'>
+                        <div class="anniu">
+                            一键拨号
+                        </div>
+                    </a>
+                    <div class="dao1">
+                        <span class="dao" v-bind="{onclick: 'wxOpenLocation('  + item.latitude   
+              + ',' +  item.longitude 
+              + ',' + '\''  + item.name + '\''  
+              + ',' + '\''  + item.address + '\''  
+              + ')'}">
+                            一键导航</span>
+                    </div>
+                </div>
+            </div>
+        </block>
+
+    </div>
+    <div class="bd-footer">
+            <image class="footer" src="../../images/lg.png"  />
+              
+            松岗微生活版权所有
+          </div>
+    <script>
+        var oSghy = [
+            {
+                tel: '暂无',
+                latitude: '22.752780',
+                longitude: '113.849980',
+                name: "农村商业银行ATM(蚌岗路)",
+                address: " 深圳市宝安区蚌岗路1号东北方向132米",
+                itemname: "农村商业银行ATM(蚌岗路)"
+
+            },
+            {
+                tel: '暂无',
+                latitude: '22.760430',
+                longitude: '113.845630',
+                name: "农村商业银行ATM(南边头路)",
+                address: " 深圳市宝安区松岗西坊工业区",
+                itemname: "农村商业银行ATM(南边头路)"
+
+            },
+            {
+                tel: '暂无',
+                latitude: '22.760146',
+                longitude: '113.858474',
+                name: "农村商业银行ATM",
+                address: " 深圳市宝安区东方大道36号联投东方PARK购物中心1层",
+                itemname: "深圳农村商业银行ATM"
+
+            },
+            {
+                tel: '暂无',
+                latitude: '22.748190',
+                longitude: '113.847498',
+                name: "农村商业银行ATM(潭头支行)",
+                address: " 深圳市宝安区潭头西路1号  ",
+                itemname: "农村商业银行ATM(潭头支行)"
+
+            },
+            {
+                tel: '暂无',
+                latitude: '22.764921',
+                longitude: '113.843513',
+                name: "深圳农村商业银行ATM(东方支行)  ",
+                address: " 深圳市宝安区东方大道115号喜港城F1  ",
+                itemname: "农村商业银行ATM(东方支行)  "
+
+            },
+            {
+                tel: '暂无',
+                latitude: '22.767900',
+                longitude: '113.845220',
+                name: "深圳农村商业银行ATM  ",
+                address: " 深圳市宝安区松明大道59号  ",
+                itemname: "深圳农村商业银行ATM  "
+
+            },
+            {
+                tel: '暂无',
+                latitude: '22.770225',
+                longitude: '113.853604',
+                name: "农村商业银行ATM(松岗支行)",
+                address: " 深圳市宝安区松岗街道松白路与立业路交汇处  ",
+                itemname: "农村商业银行ATM(松岗支行)"
+
+            },
+            {
+                tel: '暂无',
+                latitude: '22.753319',
+                longitude: '113.835500',
+                name: "农村商业银行ATM(红星支行)",
+                address: " 深圳市宝安区新二村十三巷9号(滋味园东南)  ",
+                itemname: "农村商业银行ATM(红星支行)"
+
+            },
+            {
+                tel: '暂无',
+                latitude: '22.757460',
+                longitude: '113.870170',
+                name: "农村商业银行ATM(东方大道)",
+                address: " 地址：深圳市宝安区田洋一路13号  ",
+                itemname: "农村商业银行ATM(东方大道)"
+
+            },
+
+            {
+                tel: '暂无',
+                latitude: '22.774279',
+                longitude: '113.849937',
+                name: "农村商业银行ATM(金岛路)",
+                address: " 深圳市宝安区松岗山门路16号",
+                itemname: "农村商业银行ATM(金岛路)"
+
+            },
+            {
+                tel: '暂无',
+                latitude: '22.774220',
+                longitude: '113.837290',
+                name: "农村商业银行ATM(沙溪支行)",
+                address: " 深圳市宝安区松岗镇溪头沙江路113号",
+                itemname: "农村商业银行ATM(沙溪支行)"
+
+            },
+            {
+                tel: '暂无',
+                latitude: '22.785040',
+                longitude: '113.841440',
+                name: "农村商业银行ATM(鱼塘边路) ",
+                address: " 广东省深圳市宝安区旧屋村东路4正南方向79米",
+                itemname: "农村商业银行ATM(鱼塘边路) "
+
+            },
+            {
+                tel: '暂无',
+                latitude: '22.780270',
+                longitude: '113.829670',
+                name: "农村商业银行ATM(沙浦二村北)",
+                address: " 深圳市宝安区沙浦二路64号  ",
+                itemname: "农村商业银行ATM(沙浦二村)"
+
+            },
+            {
+                tel: '暂无',
+                latitude: '22.773090',
+                longitude: '113.822440',
+                name: "深圳农村商业银行ATM(江围支行)  ",
+                address: " 深圳市宝安区沙朗路76  ",
+                itemname: "农村商业银行ATM(江围支行)  "
+
+            },
+            {
+                tel: '暂无',
+                latitude: '22.791980',
+                longitude: '113.838110',
+                name: "农村商业银行ATM(恩耀百货东北) ",
+                address: " 广东省深圳市宝安区恒兆工业区7正西方向104米  ",
+                itemname: "农村商业银行ATM(恩耀百货)  "
+
+            },
+            {
+                tel: '暂无',
+                latitude: '22.797420',
+                longitude: '113.862940',
+                name: "深圳农村商业银行ATM(燕罗支行)",
+                address: " 深圳市宝安区燕罗公路190号  ",
+                itemname: "农村商业银行ATM(燕罗支行)"
+
+            },
+            {
+                tel: '暂无',
+                latitude: '22.781550',
+                longitude: '113.814360',
+                name: "农村商业银行ATM(碧头路) ",
+                address: " 深圳市宝安区碧头路17号  ",
+                itemname: "农村商业银行ATM(碧头路) "
+
+            },
+            {
+                tel: '暂无',
+                latitude: '22.800850',
+                longitude: '113.841790',
+                name: "深圳农村商业银行ATM",
+                address: " 深圳市宝安区松岗镇塘下涌广田路  ",
+                itemname: "深圳农村商业银行ATM"
+
+            },
+            {
+                tel: '暂无',
+                latitude: '22.803550',
+                longitude: '113.863760',
+                name: "农村商业银行ATM(燕川支行) ",
+                address: " 深圳市宝安区红湖路316号附近  ",
+                itemname: "农村商业银行ATM(燕川支行) "
+
+            },
+            
+            {
+                tel: '暂无',
+                latitude: '22.773670',
+                longitude: '113.803310',
+                name: "农村商业银行ATM(平安大道) ",
+                address: " 深圳市宝安区江边工业区出租商铺073号  ",
+                itemname: "农村商业银行ATM(平安大道) "
+
+            },
+             
+            {
+                tel: '暂无',
+                latitude: '22.774279',
+                longitude: '113.849937',
+                name: "农村商业银行ATM (金岛路)",
+                address: " 深圳市宝安区松岗山门路16号(松岗鸿达制品厂西北) ",
+                itemname: "农村商业银行ATM (金岛路)"
+
+            },
+            {
+                tel: '暂无',
+                latitude: '22.763518',
+                longitude: '113.879157',
+                name: "农村商业银行ATM ",
+                address: "深圳市宝安区田洋三路1号附近 ",
+                itemname: "农村商业银行ATM "
+
+            },
+        ];
+        var oSearchResult = { items: oSghy };
+        var app = new Vue({
+            el: '#eAll',
+            data: oSearchResult  //{items: oSearchResult}
+
+        })
+    </script>
+    <script>
+        // var content = ['江西', '湖北', '湖南', '宝安区域管局', '广州', '汕头', '松岗', '深圳', '广西'];
+        document.querySelector("#valueSearch").addEventListener("keydown", function (e) {
+            if (e.keyCode === 13) {
+                $(".content-body").hide();
+                let val = e.target.value
+                console.log(val);
+
+                oSearchResult.items = []; // oSghy;
+                oSghy.forEach(item => {
+                    if (item.itemname.search(val) !== -1) {
+                        oSearchResult.items.push(item)
+                        //return
+                    }
+                });
+                // content.forEach(item => {
+                //   if (item.search(val) !== -1) {
+                //     window.location.hash = item
+                //     return
+                //   }
+                // })
+            }
+        })
+    </script>
+
+
+    <script>
+        function wxOpenLocation(latitude, longitude, name, address) {
+
+            wx.openLocation({
+                //当前经纬度
+                latitude: latitude,
+                longitude: longitude,
+                //位置名
+                name: name,
+                //详细地址
+                address: address,
+                //缩放级别默认28
+                scale: 28,
+                //成功打印信息
+                success: function (res) {
+                    //alert('openLocation success');
+                    console.log(res)
+                },
+                //失败打印信息
+                fail: function (err) {
+                    alert('openLocation fail:' + JSON.stringify(err));
+                    console.log(err)
+                },
+                //完成打印信息
+                complete: function (info) {
+                    //alert('openLocation complete');
+                    console.log(info)
+                },
+            })
+
+        }
+
+
+
+    </script>
+    <!-- 分享页面 -->
+    <script type="text/javascript" src="https://res2.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+    <script type="text/javascript">
+        var imgUrl = 'https://a.sx.rewifeng.net/logo.png';
+        var lineLink = 'https://a.sx.rewifeng.net/wb/pages1/pages2/bankNSA.html';
+        var descContent = '港澳通行证、居住证办理，社保公积金、ETC办理、交通违章缴费、学位申请，水电民生等业务，尽在松岗微生活';
+        var shareTitle = '松岗微办事';
+        var appid = '';
+
+        $.ajax({
+            type: 'POST',
+            url: "https://wx7.gongsilu.com/shixi/jsSDKConfig/api.php", //这个地址并非通用且长期有效，请去微信官方查看文档，并自行配置
+            dataType: "json",
+            data: { url: window.location.href },
+            success: function (response) {
+                var appId = response.appId;
+                var timestamp = response.timestamp;
+                var nonceStr = response.nonceStr;
+                var signature = response.signature;
+
+                wx.config({
+                    debug: false,
+                    appId: 'wxb1fc236279647c7e',
+                    timestamp: timestamp,
+                    nonceStr: nonceStr,
+                    signature: signature,
+                    jsApiList: [
+                        'checkJsApi',
+                        'openLocation',
+                        'onMenuShareTimeline',
+                        'onMenuShareAppMessage'
+                    ]
+                });
+                wx.ready(function () {
+
+                    wx.onMenuShareTimeline({
+                        title: shareTitle, // 分享标题
+                        link: lineLink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                        imgUrl: imgUrl, // 分享图标
+                        success: function () {
+                            // 用户确认分享后执行的回调函数
+                        },
+                        cancel: function () {
+                            // 用户取消分享后执行的回调函数
+                        }
+                    });
+                    wx.onMenuShareAppMessage({
+                        title: shareTitle, // 分享标题
+                        desc: descContent, // 分享描述
+                        link: lineLink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                        imgUrl: imgUrl, // 分享图标
+                        type: '', // 分享类型,music、video或link，不填默认为link
+                        dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                        success: function () {
+                            // 用户确认分享后执行的回调函数
+
+                        },
+                        cancel: function () {
+                            // 用户取消分享后执行的回调函数
+                        }
+                    });
+                });
+            },
+            error: function (response) {
+                window.parent.growl("删除失败[" + response.responseText + "]!", "error");
+            }
+        });
+    </script>
+</body>
+
+</html>

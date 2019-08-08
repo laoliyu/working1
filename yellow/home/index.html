@@ -1,0 +1,1447 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>松岗黄页</title>
+  <link rel="stylesheet" href="./index.css?v=2">
+  <script src="https://cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+  <!-- 生产环境版本，优化了尺寸和速度 -->
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <link rel="stylesheet" href="./demo.css?v=6">
+  <!-- <script src="../../../js/jquery-1.8.2.js"></script> -->
+
+</head>
+
+<body>
+  <div class="life">
+    <!-- 头部的图片 -->
+    <div class="lunbo">
+      <div class="lunbo-pic">
+        <image class="pic" src="./images/pic1.jpg"></image>
+      </div>
+    </div>
+    <!-- 松岗微生活 -->
+    <div class="jd_header">
+      <a href="index.html" class="second">
+        <div class="back-r">
+          <image class="l-pic" src="./images/back.png"></image>
+
+        </div>
+      </a>
+      <input type="search" class="header_search" id="valueSearch" placeholder="输入关键字搜索">
+      <i class="header_glass"></i>
+      <a href="index.html" class="first">
+        <div class="back-l">
+
+          <image class="r-pic" src='./images/first.png' atr="返回上层页面"></image>
+        </div>
+      </a>
+    </div>
+    <div class="content-body">
+      <!-- 内容的第一部分 -->
+      <div class="hd content-bd1">
+        <div class="content-lf">
+          <a href="./second/often.html" class="lf">
+            <div class="lf-pic">
+              <image class="pic" src="./images/chang.png"></image>
+            </div>
+            <div class="lf-decr">
+              <span class="name">常用服务</span>
+            </div>
+          </a>
+        </div>
+
+        <div class="content-rg">
+          <a href="./second/govermet.html" class="rg">
+            <div class="rg-pic">
+              <image class="pic" src="./images/zhengfu.png"></image>
+            </div>
+            <div class="rg-decr">
+              <span class="name">行政机关</span>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="hd content-bd1">
+        <div class="content-lf">
+          <a href="./second/hospital.html" class="lf">
+            <div class="lf-pic">
+              <image class="pic" src="./images/yiyuan.png"></image>
+            </div>
+            <div class="lf-decr">
+              <span class="name">医疗卫生</span>
+            </div>
+          </a>
+        </div>
+
+        <div class="content-rg">
+          <a href="./second/school.html" class="rg">
+            <div class="rg-pic">
+              <image class="pic" src="./images/wenti.png"></image>
+            </div>
+            <div class="rg-decr">
+              <span class="name">松岗学校</span>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="hd content-bd1">
+        <div class="content-lf">
+          <a href="./second/pai.html" class="lf">
+            <div class="lf-pic">
+              <image class="pic" src="./images/pai.png"></image>
+            </div>
+            <div class="lf-decr">
+              <span class="name">派出所</span>
+            </div>
+          </a>
+        </div>
+
+        <div class="content-rg">
+          <a href="./second/banshi.html" class="rg">
+            <div class="rg-pic">
+              <image class="pic" src="./images/ban.png"></image>
+            </div>
+            <div class="rg-decr">
+              <span class="name">办事大厅</span>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="hd content-bd1">
+        <div class="content-lf">
+          <a href="./second/life.html" class="lf">
+            <div class="lf-pic">
+              <image class="pic" src="./images/life.png"></image>
+            </div>
+            <div class="lf-decr">
+              <span class="name">生活服务</span>
+            </div>
+          </a>
+        </div>
+
+        <div class="content-rg">
+          <a href="./second/shop.html" class="rg">
+            <div class="rg-pic">
+              <image class="pic" src="./images/shangjia.png"></image>
+            </div>
+            <div class="rg-decr">
+              <span class="name">吃喝玩乐</span>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="bd-footer">
+        <image class="footer" src="./images/logo.png"  />
+          
+        松岗微生活版权所有
+      </div>
+    </div>
+   
+
+  </div>
+
+  <!--二级页面 -->
+
+
+  <div id="eAll" class="all">
+    <!-- 第一张图片 -->
+
+    <!-- <input type="text" id="valueSearch"> -->
+    <!-- 下面打电话的 -->
+    <block v-for="item in items" :key="item.id">
+      <div class="body-tel">
+        <div class="tel-left">
+          <!-- <span class="name" :onclick="wxOpenLocation('{{item.latitude}}','{{item.longitude}}' ,'人为峰','广东省深圳市宝安区松岗街道山美新村')"> -->
+
+
+          <span class="num">{{ item.tel }}
+          </span>
+          <span class="name">
+            {{item.itemname}}</span>
+        </div>
+        <div class="tel-right">
+          <!-- <a v-bind="{{href:'tel':'item.tel'}}"> -->
+          <a :href='"tel:" + item.tel'>
+            <div class="anniu">
+              一键拨号
+            </div>
+          </a>
+          <div class="dao1">
+            <span class="dao" v-bind="{onclick: 'wxOpenLocation('  + item.latitude   
+          + ',' +  item.longitude 
+          + ',' + '\''  + item.name + '\''  
+          + ',' + '\''  + item.address + '\''  
+          + ')'}">
+              一键导航</span>
+          </div>
+        </div>
+      </div>
+    </block>
+
+  </div>
+  <script>
+    var oSghy = [
+  // 办事大厅
+  {
+                tel: '0755-27718260',
+                latitude: '22.777895',
+                longitude: '113.853073',
+                name: "松岗街道花果山社区",
+                address: "宝安区松岗街道松环路30号花果山社区工作站大楼",
+                itemname: "松岗街道花果山社区"
+
+            },
+            {
+                tel: '0755-23074686',
+                latitude: '22.766811',
+                longitude: '113.859410',
+                name: "松岗街道楼岗社区",
+                address: "宝安区松岗街道楼岗大道46号前进公社楼岗社区工作站",
+                itemname: "松岗街道楼岗社区"
+
+            },
+            {
+                tel: '0755-27053726',
+                latitude: '22.781149',
+                longitude: '113.811249',
+                name: "松岗街道碧头社区",
+                address: "宝安区松岗街道碧头社区许屋路党群服务中心",
+                itemname: "松岗街道碧头社区"
+
+            },
+            {
+                tel: '0755-82596552',
+                latitude: '22.774302',
+                longitude: '113.833336',
+                name: "松岗街道溪头社区",
+                address: "宝安区松岗街道溪头社区宝溪三路1号党群服务中心",
+                itemname: "松岗街道溪头社区"
+
+            },
+            {
+                tel: '0755-27137337',
+                latitude: '22.772023',
+                longitude: '113.816489',
+                name: "松岗街道江边社区",
+                address: "宝安区松岗街道江边社区党群服务中心",
+                itemname: "松岗街道江边社区"
+
+            },
+            {
+                tel: '0755-23503455',
+                latitude: '22.774485',
+                longitude: '113.826263',
+                name: "松岗街道沙浦围社区",
+                address: "宝安区松岗街道沙浦围社区永利大厦1楼党群服务中心",
+                itemname: "松岗街道沙浦围社区"
+
+            },
+
+// disan
+{
+                tel: '0755-27717334',
+                latitude: '22.771790',
+                longitude: '113.846851',
+                name: "松岗街道松岗社区",
+                address: "深圳市宝安区松岗街道山门路44号松岗社区党群服务中心",
+                itemname: "松岗街道松岗社区"
+
+            },
+            {
+                tel: '0755-27138347',
+                latitude: '22.775087',
+                longitude: '113.820640',
+                name: "松岗街道郎下社区",
+                address: "宝安区松岗街道郎下社区中海西岸华府北区12栋B座外商铺11-12号一楼（郎下社区党群服务中心） ",
+                itemname: "松岗街道郎下社区"
+
+            },
+            {
+                tel: '0755-27086315',
+                latitude: '22.749190',
+                longitude: '113.843910',
+                name: "松岗街道潭头社区",
+                address: "宝安区松岗街道探头社区潭头社区居委会一楼",
+                itemname: "松岗街道潭头社区"
+
+            },
+            {
+                tel: '0755-27092663',
+                latitude: '22.765114',
+                longitude: '113.840904',
+                name: "松岗街道红星社区",
+                address: "宝安区松岗街道红星大道13号红星社区党群服务中心",
+                itemname: "松岗街道红星社区"
+
+            },
+            {
+                tel: '0755-29896985',
+                latitude: '22.762190',
+                longitude: '113.845460',
+                name: "松岗街道东方社区",
+                address: "松岗街道东方社区居委大楼一楼",
+                itemname: "松岗街道东方社区"
+
+            },
+            {
+                tel: '0755-257066091',
+                latitude: '22.774676',
+                longitude: '113.830429',
+                name: "松岗街道沙浦社区",
+                address: "深圳市宝安区松岗街道罗田社区井山路2号",
+                itemname: "松岗街道沙浦社区"
+
+            },
+            {
+                tel: '0755-27716721',
+                latitude: '22.769213',
+                longitude: '113.845263',
+                name: "松岗街道松涛社区",
+                address: "宝安区松岗街道河滨南路1号松涛社区工作站",
+                itemname: "松岗街道松涛社区"
+
+            },
+            {
+                tel: '0755-27088000',
+                latitude: '22.762140',
+                longitude: '113.852660',
+                name: "松岗街道行政服务大厅",
+                address: "宝安区松岗街道金开路1号东方二六大厦二楼",
+                itemname: "松岗街道行政服务大厅"
+
+            },
+          //  复亚医院
+          {
+                tel: '0755-61866225',
+                latitude: '22.770189',
+                longitude: '113.836774',
+                name: "深圳复亚医院",
+                address: " 深圳宝安松岗松明大道179号",
+                itemname: "深圳复亚医院"
+
+            },
+            // 行政部门
+            {
+                tel: '27096109',
+                latitude: '22.764392',
+                longitude: '113.848456',
+                name: "松岗街道办事处",
+                address: "深圳市宝安区松岗街道广深公路428号",
+                itemname: "松岗街道办事处"
+
+            },
+            {
+                tel: '27538989',
+                latitude: '22.760162',
+                longitude: '113.855710',
+                name: "松岗街道执法队",
+                address: "深圳市宝安区松岗大道5号",
+                itemname: "松岗街道执法队"
+
+            },
+            {
+                tel: '0755-27097231',
+                latitude: '22.764864',
+                longitude: '113.848100',
+                name: "松岗财政办公室",
+                address: "深圳市宝安区松岗街道办大楼6楼",
+                itemname: "松岗财政办公室"
+
+            },
+            {
+                tel: '27718324',
+                latitude: '22.771787',
+                longitude: '113.846805',
+                name: "松岗社区工作站",
+                address: "深圳市宝安区松岗街道松岗社区山门路44号",
+                itemname: "松岗社区工作站"
+
+            },
+
+            {
+                tel: '0755-27091001',
+                latitude: '22.757266',
+                longitude: '113.849965',
+                name: "松岗车管所",
+                address: "深圳市宝安区松岗东方1路2号",
+                itemname: "松岗车管所"
+
+            },
+            {
+                tel: '27096109',
+                latitude: '22.764864',
+                longitude: '113.848100',
+                name: "松岗街道政务公开领导小组",
+                address: "松岗街道办事处大楼924",
+                itemname: "松岗街道政务公开领导小组"
+
+            },
+            {
+                tel: '0755-27097210',
+                latitude: '22.764914',
+                longitude: '113.848137',
+                name: "维稳综治办公室",
+                address: "松岗街道办后门沿河北路1号司法大楼",
+                itemname: "维稳综治办公室"
+
+            },
+            {
+                tel: '0755-27099223',
+                latitude: '22.764864',
+                longitude: '113.848100',
+                name: "行政事务服务中心",
+                address: "松岗街道办大楼1楼",
+                itemname: "行政事务服务中心"
+
+            },
+
+            // 
+            {
+                tel: '0755-23705161',
+                latitude: '22.771270',
+                longitude: '113.827780',
+                name: "党建服务中心",
+                address: "松岗文化艺术中心大楼",
+                itemname: "党建服务中心"
+
+            },
+            {
+                tel: '0755-29627385',
+                latitude: '22.770350',
+                longitude: '113.847579',
+                name: "网格综合管理中心",
+                address: "宝安区东新街21号附近",
+                itemname: "网格综合管理中心"
+
+            },
+            {
+                tel: '0755-27221540',
+                latitude: '22.764864',
+                longitude: '113.848100',
+                name: "土地整备事务中心",
+                address: "松岗街道办大楼3楼",
+                itemname: "土地整备事务中心"
+
+            },
+            {
+                tel: '0755-27553507',
+                latitude: '22.764864',
+                longitude: '113.848100',
+                name: "市政建设工程事务中心",
+                address: "松岗街道办大楼5楼",
+                itemname: "市政建设工程事务中心"
+
+            },
+
+            {
+                tel: '0755-27097346',
+                latitude: '22.764864',
+                longitude: '113.848100',
+                name: "企业创新服务中心",
+                address: "松岗街道办大楼4楼",
+                itemname: "企业创新服务中心"
+
+            },
+            {
+                tel: '0755-27092133',
+                latitude: '22.771270',
+                longitude: '113.827780',
+                name: "松岗文化艺术中心",
+                address: "松岗街道沙江路与宝安大道交汇处",
+                itemname: "松岗文化艺术中心"
+
+            },
+            {
+                tel: '暂无',
+                latitude: '22.771790',
+                longitude: '113.846851',
+                name: "松岗社区党群服务中心",
+                address: "山门路与金岛路交叉口西南50米",
+                itemname: "松岗社区党群服务中心"
+
+            },
+            {
+                tel: '29909632',
+                latitude: '22.772120',
+                longitude: '113.853230',
+                name: "松岗街道劳动保障服务中心",
+                address: "松岗街道燕罗路5号劳动大楼一楼就业窗口",
+                itemname: "松岗街道劳动保障服务中心"
+
+            },
+        //  警务室
+          
+        {
+                tel: '0755-27096110',
+                latitude: '22.755110',
+                longitude: '113.845510',
+                name: "东方派出所",
+                address: "深圳市宝安区松岗街道松裕路110号",
+                itemname: "东方派出所"
+
+            },
+            {
+                tel: '27135885',
+                latitude: '22.771950',
+                longitude: '113.830650',
+                name: "松岗派出所",
+                address: "深圳市宝安区沙江路251号",
+                itemname: "松岗派出所"
+
+            },
+            {
+                tel: '27143477',
+                latitude: '22.754934',
+                longitude: '113.864069',
+                name: " 大田洋警务室(东方派出所)",
+                address: "深圳市宝安区松岗街道松裕路8号",
+                itemname: " 大田洋警务室(东方派出所)"
+
+            },
+            {
+                tel: '27056030',
+                latitude: '22.752800',
+                longitude: '113.850020',
+                name: "蚌岗警务室",
+                address: "深圳市宝安区蚌岗路29号",
+                itemname: "蚌岗警务室(东方派出所)"
+
+            },
+
+            {
+                tel: '27096041',
+                latitude: '22.762900',
+                longitude: '113.847140',
+                name: "东方警务室",
+                address: "深圳市宝安区东方村东方大道62号",
+                itemname: "东方警务室(东方派出所)"
+
+            },
+            {
+                tel: '27558110',
+                latitude: '22.774',
+                longitude: '113.862028',
+                name: "楼岗警务室",
+                address: "楼岗北二巷14号",
+                itemname: "楼岗警务室(东方派出所)"
+
+            },
+            {
+                tel: '27682580',
+                latitude: '22.748922',
+                longitude: '113.833900',
+                name: "潭头警务室",
+                address: "松岗街道潭头西部工业区A大门",
+                itemname: "潭头警务室(东方派出所)"
+
+            },
+            //松岗
+            {
+                tel: '暂无',
+                latitude: '22.775325',
+                longitude: '113.824912',
+                name: "沙浦围警务室",
+                address: "深圳市宝安区沙浦一路与沙浦围工业大道交叉口南100米",
+                itemname: "沙浦围警务室(松岗派出所)"
+
+            },
+
+            // 
+            {
+                tel: '0755-27091110',
+                latitude: '22.769070',
+                longitude: '113.845200',
+                name: "松涛警务室",
+                address: "深圳市宝安区松岗镇松涛社区河滨南路1号",
+                itemname: "松涛警务室(松岗派出所)"
+
+            },
+            {
+                tel: '暂无',
+                latitude: '22.491761',
+                longitude: '113.926116',
+                name: "花果山警务室",
+                address: "深圳市南山区花果山小区36栋103",
+                itemname: "花果山警务室(松岗派出所)"
+
+            },
+            {
+                tel: '暂无',
+                latitude: '22.781200',
+                longitude: '113.811317',
+                name: "碧头警务室",
+                address: "深圳市宝安区沙碧西路附近",
+                itemname: "碧头警务室(松岗派出所)"
+
+            },
+        //    
+        {
+                tel: '暂无',
+                latitude: '22.774241',
+                longitude: '113.822041',
+                name: "郎下警务室",
+                address: "深圳市宝安区朗碧路与沙浦一路交叉口东",
+                itemname: "郎下警务室(松岗派出所)"
+
+            },
+            {
+                tel: '暂无',
+                latitude: '22.772469',
+                longitude: '113.813641',
+                name: "江边警务室",
+                address: "深圳市宝安区松岗镇江边村江边工业区创业二路口江边警务室旁边",
+                itemname: "江边警务室(松岗派出所)"
+
+            },
+            {
+                tel: '暂无',
+                latitude: '22.781024',
+                longitude: '113.831674',
+                name: "沙浦警务室",
+                address: "深圳市宝安区沙浦一路与沙浦围工业大道交叉口南100米",
+                itemname: "沙浦警务室(松岗派出所)"
+
+            },
+            {
+                tel: '暂无',
+                latitude: '22.772077',
+                longitude: '113.846287',
+                name: "松岗警务室",
+                address: "深圳市宝安区松岗镇山门路18号",
+                itemname: "松岗警务室(松岗派出所)"
+
+            },
+            {
+                tel: '暂无',
+                latitude: '22.706723',
+                longitude: '113.906475',
+                name: "红星警务室",
+                address: "深圳市光明区星湖路43附近",
+                itemname: "红星警务室(松岗派出所)"
+
+            },
+    //  小学
+    {
+                tel: '0755-27139818',
+                latitude: '22.770461',
+                longitude: '113.854766',
+                name: "松岗中英文实验学校",
+                address: "松岗街道松岗村",
+                itemname: "松岗中英文实验学校"
+
+            },
+            {
+                tel: '0755-27139818',
+                latitude: '22.770041',
+                longitude: '113.835873',
+                name: "中英文实验学校（新校区）",
+                address: "松岗汽车站向东100米",
+                itemname: "中英文实验学校（新校区）"
+
+            },
+            {
+                tel: '0755-27053088',
+                latitude: '22.776590',
+                longitude: '113.810320',
+                name: "松岗碧头文武学校",
+                address: "松岗第二工业区",
+                itemname: "松岗碧头文武学校"
+
+            },
+            {
+                tel: '0755-27054434',
+                latitude: '22.765960',
+                longitude: '113.861680',
+                name: "松岗东升实验学校",
+                address: "松岗街道楼岗大道3号",
+                itemname: "松岗东升实验学校"
+
+            },
+            {
+                tel: '0755—27138866',
+                latitude: '22.774780',
+                longitude: '113.818450',
+                name: "松岗崇文学校",
+                address: "松岗街道江边社区北五巷8号（兴城百货对面直入200米）",
+                itemname: "松岗崇文学校"
+
+            },
+            {
+                tel: '0755-27711936',
+                latitude: '22.775960',
+                longitude: '113.854060',
+                name: "松岗陶园中英文实验学校",
+                address: "松岗街道山门社区",
+                itemname: "松岗陶园中英文实验学校"
+
+            },
+
+// disan
+{
+                tel: '0755-27557910',
+                latitude: '22.768579',
+                longitude: '113.853983',
+                name: "松岗华源学校",
+                address: "松岗街道立业路",
+                itemname: "松岗华源学校"
+
+            },
+            {
+                tel: '0755-27059899',
+                latitude: '22.799684',
+                longitude: '113.860654',
+                name: "松岗标尚学校",
+                address: "松岗街道燕川红湖路1号 ",
+                itemname: "松岗标尚学校"
+
+            },
+            {
+                tel: '0755-29868270',
+                latitude: '22.803510',
+                longitude: '113.845740',
+                name: "松岗化雨中英文小学",
+                address: "松岗街道塘下涌",
+                itemname: "松岗化雨中英文小学"
+
+            },
+            {
+                tel: '暂无',
+                latitude: '22.769850',
+                longitude: '113.823520',
+                name: "松岗实验学校",
+                address: "宝安区松岗街道沙江路与朗碧路交汇处",
+                itemname: "松岗实验学校"
+
+            },
+            {
+                tel: '暂无',
+                latitude: '22.813213',
+                longitude: '113.872996',
+                name: "松岗特殊学校",
+                address: "宝安区松岗街道红燕路与塘下涌交会处",
+                itemname: "松岗特殊学校"
+
+            },
+            {
+                tel: '0755-27065232',
+                latitude: '22.768186',
+                longitude: '113.842298',
+                name: "松岗第一小学",
+                address: "松岗街道滨河路24号",
+                itemname: "松岗第一小学"
+
+            },
+            {
+                tel: '0755-27091822',
+                latitude: '22.760440',
+                longitude: '113.847610',
+                name: "松岗东方小学",
+                address: "松岗街道东方居委会大楼右侧150米",
+                itemname: "松岗东方小学"
+
+            },
+            {
+                tel: '0755-27713173',
+                latitude: '22.760440',
+                longitude: '113.847610',
+                name: "松岗沙溪小学",
+                address: "松岗街道沙浦一路8号",
+                itemname: "松岗沙溪小学"
+
+            },
+            {
+                tel: '0755-27061638',
+                latitude: '22.750260',
+                longitude: '113.842910',
+                name: "松岗潭头小学",
+                address: "松岗街道潭头社区潭头西路38号",
+                itemname: "松岗潭头小学"
+
+            },
+            {
+                tel: '暂无',
+                latitude: '22.765646',
+                longitude: '113.838837',
+                name: "松岗第三小学",
+                address: "宝安区松岗街道松明大道131号",
+                itemname: "松岗第三小学"
+
+            },
+// disi
+
+{
+                tel: '0755-23720652',
+                latitude: '22.785266',
+                longitude: '113.832545',
+                name: "松岗艺展小学",
+                address: "松岗街道松福大道和松瑞路交汇处",
+                itemname: "松岗艺展小学"
+
+            },
+            // 中学
+            {
+                tel: '0755-27139818',
+                latitude: '22.770461',
+                longitude: '113.854766',
+                name: "松岗中英文实验学校",
+                address: "松岗松岗街道松岗村",
+                itemname: "松岗中英文实验学校"
+
+            },
+            {
+                tel: '0755—27138866',
+                latitude: '22.774780',
+                longitude: '113.818450',
+                name: "松岗崇文学校",
+                address: "松岗松岗街道江边社区北五巷8号（兴城百货对面直入200米）",
+                itemname: "松岗崇文学校"
+
+            },
+            {
+                tel: '0755-27054434',
+                latitude: '22.765960',
+                longitude: '113.861680',
+                name: "松岗东升实验学校",
+                address: "松岗松岗街道楼岗大道3号",
+                itemname: "松岗东升实验学校"
+
+            },
+           
+            {
+                tel: '0755-27053088',
+                latitude: '22.776590',
+                longitude: '113.810320',
+                name: "松岗碧头文武学校",
+                address: "松岗松岗第二工业区",
+                itemname: "松岗碧头文武学校"
+
+            },
+            {
+                tel: '27785240',
+                latitude: '22.768579',
+                longitude: '113.853983',
+                name: "松岗华源学校",
+                address: "松岗松岗街道立业路",
+                itemname: "松岗华源学校"
+
+            },
+
+{
+                tel: '0755-27711936',
+                latitude: '22.775960',
+                longitude: '113.854060',
+                name: "松岗陶园中英文实验学校",
+                address: "松岗松岗街道山门社区",
+                itemname: "松岗陶园中英文实验学校"
+
+            },
+            {
+                tel: '0755-27059899',
+                latitude: '22.799684',
+                longitude: '113.860654',
+                name: "松岗松岗标尚学校",
+                address: "松岗松岗街道燕川红湖路1号 ",
+                itemname: "松岗松岗标尚学校"
+
+            },
+            {
+                tel: '0755-27081674',
+                latitude: '22.759276',
+                longitude: '113.867005',
+                name: "松岗松岗中学",
+                address: "松岗松岗镇东方大道",
+                itemname: "松岗松岗中学"
+
+            },
+            {
+                tel: '暂无',
+                latitude: '22.813213',
+                longitude: '113.872996',
+                name: "松岗特殊教育学校",
+                address: "宝安区松岗街道红燕路与塘下涌交会处",
+                itemname: "松岗特殊教育学校"
+
+            },
+            {
+                tel: '暂无',
+                latitude: '22.769850',
+                longitude: '113.823520',
+                name: "松岗实验学校",
+                address: "宝安区松岗街道沙江路与朗碧路交汇处",
+                itemname: "松岗实验学校"
+
+            },
+            // 技校
+            {
+                tel: '0755-27711063',
+                latitude: '22.771330',
+                longitude: '113.854060',
+                name: "宝民技工学校",
+                address: "深圳市宝安区松岗街道松白路7022号（松岗汽车站斜对面）",
+                itemname: "宝民技工学校"
+
+            },
+            {
+                tel: '暂无',
+                latitude: '22.765741',
+                longitude: '113.860437',
+                name: "广东省城市建设技工学校",
+                address: "深圳市宝安区楼岗大道42号",
+                itemname: "广东省城市建设技工学校"
+
+            },
+            {
+                tel: '0755-29936222',
+                latitude: '22.799009',
+                longitude: '113.872281',
+                name: "广东省机械技师学院(松岗)",
+                address: "深圳市宝安区松岗罗田社区罗中路130号",
+                itemname: "广东省机械技师学院(松岗)"
+
+            },
+           
+            {
+                tel: '88842011',
+                latitude: '22.799003',
+                longitude: '113.872515',
+                name: "深圳市新世纪技工学校",
+                address: "深圳市宝安区松岗镇罗田村罗中北路246号",
+                itemname: "深圳市新世纪技工学校"
+
+            },
+            // 幼儿园
+            {
+                tel: '0755-27139998',
+                latitude: '22.769690',
+                longitude: '113.835090',
+                name: "松岗中英文实验学校幼儿园",
+                address: "深圳市宝安区松岗街道松岗社区居委会",
+                itemname: "松岗中英文实验学校幼儿园"
+
+            },
+            {
+                tel: '0755-27095069',
+                latitude: '22.760070',
+                longitude: '113.847400',
+                name: "松岗东方幼儿园",
+                address: "深圳市宝安区松岗街道东方社区上报美路25号",
+                itemname: "松岗东方幼儿园"
+
+            },
+            {
+                tel: '0755-27469761',
+                latitude: '22.775150',
+                longitude: '113.832380',
+                name: "松岗沙溪幼儿园",
+                address: "深圳市宝安区松岗街道沙浦一路2号",
+                itemname: "松岗沙溪幼儿园"
+
+            },
+            {
+                tel: '0755-27090643',
+                latitude: '22.766190',
+                longitude: '113.851530',
+                name: "松岗第二幼儿园",
+                address: "深圳市宝安区松岗街道平安路2号",
+                itemname: "松岗第二幼儿园"
+
+            },
+            {
+                tel: '0755-27714121',
+                latitude: '22.767070',
+                longitude: '113.848200',
+                name: "松岗东方红幼儿园",
+                address: "深圳市宝安区松岗街道广深路293号宜新花园",
+                itemname: "松岗东方红幼儿园"
+
+            },
+            {
+                tel: '0755-27137304',
+                latitude: '22.774780',
+                longitude: '113.818450',
+                name: "松岗崇文幼儿园",
+                address: "深圳市宝安区松岗街道江边社区北五巷8号",
+                itemname: "松岗崇文幼儿园"
+
+            },
+
+// disan
+{
+                tel: '0755-27065610',
+                latitude: '22.768494',
+                longitude: '113.837902',
+                name: "松岗英艺幼儿园",
+                address: "深圳市宝安区松岗街道河滨路红星花园A幢",
+                itemname: "松岗英艺幼儿园"
+
+            },
+            {
+                tel: '0755-27065910',
+                latitude: '22.764790',
+                longitude: '113.857080',
+                name: "松岗宝贝幼儿园",
+                address: "深圳市宝安区松岗街道红星社区温屋村96号 ",
+                itemname: "松岗宝贝幼儿园"
+
+            },
+            {
+                tel: '0755-27054192',
+                latitude: '22.765960',
+                longitude: '113.861680',
+                name: "松岗东升幼儿园",
+                address: "深圳市宝安区松岗街道楼岗大道",
+                itemname: "松岗东升幼儿园"
+
+            },
+            {
+                tel: '0755-21509998',
+                latitude: '22.779080',
+                longitude: '113.849790',
+                name: "松岗集信名城幼儿园",
+                address: "宝安松岗街道沙江东路北侧麒麟山地段集信名城小区内",
+                itemname: "松岗集信名城幼儿园"
+
+            },
+            {
+                tel: '0755-27712841',
+                latitude: '22.770590',
+                longitude: '113.850050',
+                name: "松岗蓓蕾幼儿园",
+                address: "深圳市宝安区松岗街道红花新村68号",
+                itemname: "松岗蓓蕾幼儿园"
+
+            },
+            {
+                tel: '0755-27062653',
+                latitude: '22.797569',
+                longitude: '113.878047',
+                name: "松岗金色年华罗田幼儿园",
+                address: "深圳市宝安区松岗街道罗田社区井山路2号",
+                itemname: "松岗金色年华罗田幼儿园"
+
+            },
+            {
+                tel: '0755-27683123',
+                latitude: '22.746710',
+                longitude: '113.845340',
+                name: "松岗萌雅幼儿园",
+                address: "深圳市宝安区松岗街道潭头商住区C88栋",
+                itemname: "松岗萌雅幼儿园"
+
+            },
+            {
+                tel: '0755-27683123',
+                latitude: '22.566350',
+                longitude: '113.870555',
+                name: "松岗萌雅幼儿园",
+                address: "深圳市宝安区松岗街道潭头商住区C88栋",
+                itemname: "松岗萌雅幼儿园"
+
+            },
+            {
+                tel: '13715230303',
+                latitude: '22.765314',
+                longitude: '113.858707',
+                name: "松岗新海幼儿园",
+                address: "深圳市宝安区松岗街道楼岗社区大岗顶工业区第一栋",
+                itemname: "松岗新海幼儿园"
+
+            },
+            {
+                tel: '0755-27072235',
+                latitude: '22.797190',
+                longitude: '113.847150',
+                name: "松岗艺林幼儿园",
+                address: "深圳市宝安区松岗街道塘下涌社区福安路1栋",
+                itemname: "松岗艺林幼儿园"
+
+            },
+// disi
+
+{
+                tel: '0755-29868265',
+                latitude: '22.804009',
+                longitude: '113.845537',
+                name: "松岗塘下涌幼儿园",
+                address: "深圳市宝安区松岗街道塘下涌社区广田大道旁物园路1号",
+                itemname: "松岗塘下涌幼儿园"
+
+            },
+            {
+                tel: '0755-27070862',
+                latitude: '22.800100',
+                longitude: '113.867930',
+                name: "松岗燕川博蕾幼儿园 ",
+                address: "深圳市宝安区松岗街道燕川社区环胜路26号",
+                itemname: "松岗燕川博蕾幼儿园 "
+
+            },
+            {
+                tel: '0755-27070270',
+                latitude: '22.798750',
+                longitude: '113.860540',
+                name: "松岗燕川幼儿园",
+                address: "深圳市宝安区松岗街道燕川居委燕川红湖路1号",
+                itemname: "松岗燕川幼儿园"
+
+            },
+            {
+                tel: '0755-27713989',
+                latitude: '22.773300',
+                longitude: '113.852390',
+                name: "松岗陶园幼儿园",
+                address: "深圳市宝安区松岗街道燕罗路山门居委旁",
+                itemname: "松岗陶园幼儿园"
+
+            },
+            // 
+
+
+            {
+                tel: '0755-27557912',
+                latitude: '22.768589',
+                longitude: '113.854338',
+                name: "松岗华源幼儿园 ",
+                address: "深圳市宝安区松岗街道创业路南城大夏旁",
+                itemname: "松岗华源幼儿园 "
+
+            },
+            {
+                tel: '0755-29888198',
+                latitude: '22.764590',
+                longitude: '113.851070',
+                name: "松岗北师大松岗幼儿园",
+                address: "深圳市宝安区松岗街道楼岗路1号宝利豪庭",
+                itemname: "松岗北师大松岗幼儿园"
+
+            },
+            {
+                tel: '0755-27061271',
+                latitude: '22.749770',
+                longitude: '113.844280',
+                name: "松岗潭头幼儿园",
+                address: "深圳市宝安区松岗街道潭头西路38号",
+                itemname: "松岗潭头幼儿园"
+
+            },
+            {
+                tel: '0755-33262298',
+                latitude: '22.769389',
+                longitude: '113.839782',
+                name: "松岗华盛幼儿园",
+                address: "深圳市宝安区松岗街道河滨北路码头东升3、4栋",
+                itemname: "松岗华盛幼儿园"
+
+            },
+            {
+                tel: '0755-27085373',
+                latitude: '22.763260',
+                longitude: '113.841100',
+                name: "松岗红星幼儿园",
+                address: "深圳市宝安区松岗街道红星社区格布南160号",
+                itemname: "松岗红星幼儿园"
+
+            },
+// disi
+
+{
+                tel: '0755-27138808',
+                latitude: '22.770786',
+                longitude: '113.818667',
+                name: "松岗西岸华府蒙思幼儿园",
+                address: "深圳市宝安区松岗街道新沙江路北侧中海西岸华府13栋",
+                itemname: "松岗西岸华府蒙思幼儿园"
+
+            },
+            {
+                tel: '0755-27552298',
+                latitude: '22.776590',
+                longitude: '113.810320',
+                name: "松岗碧头幼儿园 ",
+                address: "深圳市宝安区松岗街道碧头第二工业区",
+                itemname: "松岗碧头幼儿园 "
+
+            },
+            {
+                tel: '0755-27237100',
+                latitude: '22.775800',
+                longitude: '113.833610',
+                name: "松岗溪头幼儿园 ",
+                address: "深圳市宝安区松岗街道溪头社区祠堂路",
+                itemname: "松岗溪头幼儿园 "
+
+            },
+            {
+                tel: '0755-27711840',
+                latitude: '22.770680',
+                longitude: '113.842400',
+                name: "深圳宝安松岗中心幼儿园",
+                address: "深圳市宝安区松岗街道众心路54号",
+                itemname: "深圳宝安松岗中心幼儿园"
+
+            },
+            // 社康zhongxin
+            {
+                tel: '27068880',
+                latitude: '22.765308',
+                longitude: '113.879442',
+                name: "东方社康中心",
+                address: "深圳市宝安区松岗东方大田洋工业区田洋北一路",
+                itemname: "东方社康中心"
+
+            },
+            {
+                tel: '27711709',
+                latitude: '22.766840',
+                longitude: '113.844408',
+                name: "居委会社康中心",
+                address: "松岗爱国七街1号",
+                itemname: "居委会社康中心"
+
+            },
+            {
+                tel: '27137359',
+                latitude: '22.774714',
+                longitude: '113.822830',
+                name: "朗下社康中心",
+                address: "松岗朗下居委会旁",
+                itemname: "朗下社康中心"
+
+            },
+            {
+                tel: '27138336',
+                latitude: '22.773516',
+                longitude: '113.817801',
+                name: "江边社康中心",
+                address: "松岗街道江边居委北一巷一号",
+                itemname: "江边社康中心"
+
+            },
+
+            {
+                tel: '27716767',
+                latitude: '22.775341',
+                longitude: '113.831813',
+                name: "沙浦社康中心",
+                address: "松岗沙浦社区一巷1号",
+                itemname: "沙浦社康中心"
+
+            },
+            {
+                tel: '27052127',
+                latitude: '22.775499',
+                longitude: '113.824968',
+                name: "沙浦围社康中心",
+                address: "松岗沙浦围居委会旁",
+                itemname: "沙浦围社康中心"
+
+            },
+            {
+                tel: '27066347',
+                latitude: '22.772500',
+                longitude: '113.835440',
+                name: "溪头社康中心",
+                address: "溪头第八工业区东四巷9号",
+                itemname: "溪头社康中心"
+
+            },
+            {
+                tel: '27056825',
+                latitude: '22.750167',
+                longitude: '113.848910',
+                name: "潭头社康中心",
+                address: "松岗潭盛新村10号",
+                itemname: "潭头社康中心"
+
+            },
+
+            // 
+            {
+                tel: '27053432',
+                latitude: '22.799671',
+                longitude: '113.877190',
+                name: "碧头社康中心",
+                address: "碧头综合市场旁",
+                itemname: "碧头社康中心"
+
+            },
+            {
+                tel: '33925080',
+                latitude: '22.763905',
+                longitude: '113.837231',
+                name: "红星社康中心",
+                address: "松岗街道松瑞路格布段",
+                itemname: "红星社康中心"
+
+            },
+            {
+                tel: '27538744',
+                latitude: '22.766160',
+                longitude: '113.853319',
+                name: "集苑社康中心",
+                address: "松岗居乐苑",
+                itemname: "集苑社康中心"
+
+            },
+            // 松岗医院
+            {
+                tel: '0755-29626111',
+                latitude: '22.782475',
+                longitude: '113.846921',
+                name: "松岗人民医院",
+                address: " 深圳市宝安区松岗街道沙江路2号",
+                itemname: "松岗人民医院"
+
+            },
+            
+    ];
+    var oSearchResult = { items: [] };
+    var app = new Vue({
+      el: '#eAll',
+      data: oSearchResult  //{items: oSearchResult}
+
+    })
+  </script>
+  <script>
+    // var content = ['江西', '湖北', '湖南', '宝安区域管局', '广州', '汕头', '松岗', '深圳', '广西'];
+    document.querySelector("#valueSearch").addEventListener("keydown", function (e) {
+      if (e.keyCode === 13) {
+        $(".content-body").hide();
+        let val = e.target.value
+        console.log(val);
+
+        oSearchResult.items = []; // oSghy;
+        oSghy.forEach(item => {
+          if (item.itemname.search(val) !== -1) {
+            oSearchResult.items.push(item)
+            //return
+          }
+        });
+        // content.forEach(item => {
+        //   if (item.search(val) !== -1) {
+        //     window.location.hash = item
+        //     return
+        //   }
+        // })
+      }
+    })
+  </script>
+
+
+  <script>
+    function wxOpenLocation(latitude, longitude, name, address) {
+
+      wx.openLocation({
+        //当前经纬度
+        latitude: latitude,
+        longitude: longitude,
+        //位置名
+        name: name,
+        //详细地址
+        address: address,
+        //缩放级别默认28
+        scale: 28,
+        //成功打印信息
+        success: function (res) {
+          //alert('openLocation success');
+          console.log(res)
+        },
+        //失败打印信息
+        fail: function (err) {
+          alert('openLocation fail:' + JSON.stringify(err));
+          console.log(err)
+        },
+        //完成打印信息
+        complete: function (info) {
+          //alert('openLocation complete');
+          console.log(info)
+        },
+      })
+
+    }
+
+
+
+  </script>
+
+
+
+
+
+
+  <!-- 分享页面 -->
+  <script type="text/javascript" src="https://res2.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+  <script type="text/javascript">
+    var imgUrl = 'https://a.sx.rewifeng.net/logo.png';
+    var lineLink = 'https://a.sx.rewifeng.net/yellow/home/index.html';
+    var descContent = '常用服务，党政机关，医疗卫生，生活服务，文体活动，松岗商家；尽在松岗黄页';
+    var shareTitle = '松岗黄页';
+    var appid = '';
+
+    $.ajax({
+      type: 'POST',
+      url: "https://wx7.gongsilu.com/shixi/jsSDKConfig/api.php", //这个地址并非通用且长期有效，请去微信官方查看文档，并自行配置
+      dataType: "json",
+      data: { url: window.location.href },
+      success: function (response) {
+        var appId = response.appId;
+        var timestamp = response.timestamp;
+        var nonceStr = response.nonceStr;
+        var signature = response.signature;
+
+        wx.config({
+          debug: false,
+          appId: 'wxb1fc236279647c7e',
+          timestamp: timestamp,
+          nonceStr: nonceStr,
+          signature: signature,
+          jsApiList: [
+            'checkJsApi',
+            'openLocation',
+            'onMenuShareTimeline',
+            'onMenuShareAppMessage'
+          ]
+        });
+        wx.ready(function () {
+
+          wx.onMenuShareTimeline({
+            title: shareTitle, // 分享标题
+            link: lineLink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+            imgUrl: imgUrl, // 分享图标
+            success: function () {
+              // 用户确认分享后执行的回调函数
+            },
+            cancel: function () {
+              // 用户取消分享后执行的回调函数
+            }
+          });
+          wx.onMenuShareAppMessage({
+            title: shareTitle, // 分享标题
+            desc: descContent, // 分享描述
+            link: lineLink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+            imgUrl: imgUrl, // 分享图标
+            type: '', // 分享类型,music、video或link，不填默认为link
+            dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+            success: function () {
+              // 用户确认分享后执行的回调函数
+
+            },
+            cancel: function () {
+              // 用户取消分享后执行的回调函数
+            }
+          });
+        });
+      },
+      error: function (response) {
+        window.parent.growl("删除失败[" + response.responseText + "]!", "error");
+      }
+    });
+  </script>
+</body>
+
+</html>

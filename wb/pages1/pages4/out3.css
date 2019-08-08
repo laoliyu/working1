@@ -1,0 +1,182 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* 返回首页和上层页面 */
+
+/* 内容 */
+
+.out-title {
+    /* margin: 10px; */
+    width: 100%;
+    height: 60px;
+    display: flex;
+    padding: 10px;
+    border-bottom: 5px solid #d0d0d0;
+}
+
+.pic {
+    width: 50px;
+    height: 50px;
+}
+
+.decr {
+    margin-left: 60px;
+    margin-top: -50px;
+}
+
+.name {
+    font-weight: bold;
+}
+
+.small {
+    margin-top: 10px;
+    font-size: 10px;
+    color: #d0d0d0;
+}
+
+.imgs {
+    position: absolute;
+    margin-top: -70px;
+    right: 0;
+}
+
+.rg {
+    width: 25px;
+    height: 25px;
+    margin-top: 30px;
+}
+
+button {
+    border-radius: 10px;
+    background-color: #ccc;
+    border-right: 10px solid #222222;
+    border-bottom: 10px solid #222222;
+    border-left: #dddddd solid 10px;
+    border-top: 10px solid #dddddd;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+/* 内容 */
+
+.goverment-content {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    border-bottom: 1px solid #d0d0d0;
+}
+
+.TJ {
+    margin-top: 10px;
+    background-color: #e7591c;
+    opacity: 1;
+    z-index: 999;
+}
+
+.LV {
+    width: 100%;
+    text-align: center;
+    z-index: 99;
+    /* background-color: red; */
+}
+
+.LV1 {
+    width: 100%;
+    text-align: center;
+    z-index: 99;
+    /* background-color: green; */
+}
+
+.LV3 {
+    color: white;
+    font-weight: bold;
+}
+
+.cn {
+    height: 30px;
+    line-height: 30px;
+    margin: 10px 0;
+    margin-left: 10px;
+}
+
+.content-left {
+    width: 50%;
+    border-right: 1px solid #d0d0dd;
+}
+
+.pic1 {
+    width: 25px;
+    height: 25px;
+    vertical-align: middle;
+}
+
+.out {
+    font-size: 15px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.m-footer {
+    position: fixed;
+    bottom: 0px;
+    left: 0;
+    width: 100%;
+    padding: 5px;
+    color: #ffff;
+    background-color: #e7591c;
+    opacity: 0.5;
+    z-index: 999;
+    overflow: hidden;
+}
+
+.icon {
+    width: 25px;
+    height: 25px;
+    vertical-align: middle;
+}
+
+.gif {
+    margin-left: 25%;
+    height: 20px;
+}
+
+/* 返回首页和上层的菜单 */
+
+.back-l {
+    display: fixed;
+    position: absolute;
+    left: 0;
+    bottom: 10%;
+padding-left: 10px;
+    width: 60px;
+    height: 30px;
+    font-size: 10px;
+    opacity: .8;
+    z-index: 999;
+}
+
+.l-pic {
+    display: fixed;
+    position: absolute;
+    right: 0;
+    bottom: 10%;
+padding-right: 10px;
+    height: 30px;
+    font-size: 10px;
+    opacity: .8;
+    z-index: 999;
+}
+
+.l-pic, .r-pic {
+    width: 30px;
+    height: 30px;
+}

@@ -1,0 +1,111 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.first-goverment {
+    width: 100%;
+}
+
+.goverment-title {
+    display: flex;
+    font-size: 15px;
+    height: 30px;
+    line-height: 30px;
+    border-bottom: 1px solid #d0d0d0;
+    position: relative;
+}
+.title0{
+    color: #2cb144;
+}
+.title1 {
+    color: #1296db;
+}
+.title2{
+    color: #d82008;
+}
+.title3{
+    color: #0f9186;
+}
+.title4{
+    color: #f28811;
+}
+a {
+    text-decoration: none;
+    color: #000000;
+}
+
+.thing {
+    margin-left: 10px;
+}
+
+.all {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.pic {
+    width: 15px;
+    height: 15px;
+}
+
+.goverment-content {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    border-bottom: 1px solid #d0d0d0;
+}
+
+.cn {
+    height: 30px;
+    line-height: 30px;
+    margin: 10px 0;
+    margin-left: 10px;
+}
+
+.content-left {
+    width: 48%;
+    border-right: 1px solid #d0d0dd;
+}
+
+.pic1 {
+    width: 25px;
+    height: 25px;
+    vertical-align: middle;
+}
+
+.goverment-content1 {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    border-bottom: 3px solid #d0d0d0;
+}
+
+/* 第二部分 */
+
+.out {
+    margin-left: 5px;
+}
+
+/* .small {
+    font-size: 10px;
+} */
+
+.m-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 5px;
+    color: #ffff;
+    background-color: #e7591c;
+    opacity: 0.5;
+    z-index: 999;
+}
+
+.icon {
+    width: 25px;
+    height: 25px;
+    vertical-align: middle;
+}

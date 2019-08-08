@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>派出所</title>
+    <link rel="stylesheet" href="../demo.css">
+    <script src="https://cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+
+<body>
+        <div class="jd_header">
+                <a href="../index.html" class="second">
+                    <div class="back-r">
+                      <image class="l-pic" src="./images/back.png"></image>
+            
+                    </div>
+                  </a>
+              <input type="search" class="header_search" id="valueSearch" placeholder="输入关键字搜索">
+              <i class="header_glass"></i>
+              <a href="../index.html" class="first">
+                  <div class="back-l">
+          
+                    <image class="r-pic" src='./images/first.png'atr="返回上层页面"></image>
+                  </div>
+                </a>
+            </div>
+    <div id="eAll" class="all">
+        <!-- 第一张图片 -->
+        
+        <!-- <input type="text" id="valueSearch"> -->
+        <!-- 下面打电话的 -->
+        <block v-for="item in items" :key="item.id">
+        <div class="body-tel" >
+          <div class="tel-left">
+              <!-- <span class="name" :onclick="wxOpenLocation('{{item.latitude}}','{{item.longitude}}' ,'人为峰','广东省深圳市宝安区松岗街道山美新村')"> -->
+    
+          
+            <span class="num">{{ item.tel }}
+            </span>
+            <span class="name" >
+              {{item.itemname}}</span>
+          </div>
+          <div class="tel-right">
+            <!-- <a v-bind="{{href:'tel':'item.tel'}}"> -->
+            <a :href='"tel:" + item.tel'>
+                <div class="anniu">
+                    一键拨号
+                </div>
+            </a>
+            <div class="dao1">
+              <span class="dao" v-bind="{onclick: 'wxOpenLocation('  + item.latitude   
+              + ',' +  item.longitude 
+              + ',' + '\''  + item.name + '\''  
+              + ',' + '\''  + item.address + '\''  
+              + ')'}">
+                一键导航</span>
+            </div>
+        </div>
+        </div>
+      </block>
+      <div class="bd-footer">
+            <image class="footer" src="./images/logo.png"  />
+              
+            松岗微生活版权所有
+          </div>
+      </div>
+    <script>
+        var oSghy = [
+           
+            {
+                tel: '0755-27096110',
+                latitude: '22.755110',
+                longitude: '113.845510',
+                name: "东方派出所",
+                address: "深圳市宝安区松岗街道松裕路110号",
+                itemname: "东方派出所"
+
+            },
+            {
+                tel: '27135885',
+                latitude: '22.771950',
+                longitude: '113.830650',
+                name: "松岗派出所",
+                address: "深圳市宝安区沙江路251号",
+                itemname: "松岗派出所"
+
+            },
+            {
+                tel: '27143477',
+                latitude: '22.754934',
+                longitude: '113.864069',
+                name: " 大田洋警务室(东方派出所)",
+                address: "深圳市宝安区松岗街道松裕路8号",
+                itemname: " 大田洋警务室(东方派出所)"
+
+            },
+            {
+                tel: '27056030',
+                latitude: '22.752800',
+                longitude: '113.850020',
+                name: "蚌岗警务室",
+                address: "深圳市宝安区蚌岗路29号",
+                itemname: "蚌岗警务室(东方派出所)"
+
+            },
+
+            {
+                tel: '27096041',
+                latitude: '22.762900',
+                longitude: '113.847140',
+                name: "东方警务室",
+                address: "深圳市宝安区东方村东方大道62号",
+                itemname: "东方警务室(东方派出所)"
+
+            },
+            {
+                tel: '27558110',
+                latitude: '22.774',
+                longitude: '113.862028',
+                name: "楼岗警务室",
+                address: "楼岗北二巷14号",
+                itemname: "楼岗警务室(东方派出所)"
+
+            },
+            {
+                tel: '27682580',
+                latitude: '22.748922',
+                longitude: '113.833900',
+                name: "潭头警务室",
+                address: "松岗街道潭头西部工业区A大门",
+                itemname: "潭头警务室(东方派出所)"
+
+            },
+            //松岗
+            {
+                tel: '暂无',
+                latitude: '22.775325',
+                longitude: '113.824912',
+                name: "沙浦围警务室",
+                address: "深圳市宝安区沙浦一路与沙浦围工业大道交叉口南100米",
+                itemname: "沙浦围警务室(松岗派出所)"
+
+            },
+
+            // 
+            {
+                tel: '0755-27091110',
+                latitude: '22.769070',
+                longitude: '113.845200',
+                name: "松涛警务室",
+                address: "深圳市宝安区松岗镇松涛社区河滨南路1号",
+                itemname: "松涛警务室(松岗派出所)"
+
+            },
+            {
+                tel: '暂无',
+                latitude: '22.491761',
+                longitude: '113.926116',
+                name: "花果山警务室",
+                address: "深圳市南山区花果山小区36栋103",
+                itemname: "花果山警务室(松岗派出所)"
+
+            },
+            {
+                tel: '暂无',
+                latitude: '22.781200',
+                longitude: '113.811317',
+                name: "碧头警务室",
+                address: "深圳市宝安区沙碧西路附近",
+                itemname: "碧头警务室(松岗派出所)"
+
+            },
+        //    
+        {
+                tel: '暂无',
+                latitude: '22.774241',
+                longitude: '113.822041',
+                name: "郎下警务室",
+                address: "深圳市宝安区朗碧路与沙浦一路交叉口东",
+                itemname: "郎下警务室(松岗派出所)"
+
+            },
+            {
+                tel: '暂无',
+                latitude: '22.772469',
+                longitude: '113.813641',
+                name: "江边警务室",
+                address: "深圳市宝安区松岗镇江边村江边工业区创业二路口江边警务室旁边",
+                itemname: "江边警务室(松岗派出所)"
+
+            },
+            {
+                tel: '暂无',
+                latitude: '22.781024',
+                longitude: '113.831674',
+                name: "沙浦警务室",
+                address: "深圳市宝安区沙浦一路与沙浦围工业大道交叉口南100米",
+                itemname: "沙浦警务室(松岗派出所)"
+
+            },
+            {
+                tel: '暂无',
+                latitude: '22.772077',
+                longitude: '113.846287',
+                name: "松岗警务室",
+                address: "深圳市宝安区松岗镇山门路18号",
+                itemname: "松岗警务室(松岗派出所)"
+
+            },
+            {
+                tel: '暂无',
+                latitude: '22.706723',
+                longitude: '113.906475',
+                name: "红星警务室",
+                address: "深圳市光明区星湖路43附近",
+                itemname: "红星警务室(松岗派出所)"
+
+            },
+           
+        ];
+        var oSearchResult = { items: oSghy };
+        var app = new Vue({
+            el: '#eAll',
+            data: oSearchResult  //{items: oSearchResult}
+
+        })
+    </script>
+    <script>
+        // var content = ['江西', '湖北', '湖南', '宝安区域管局', '广州', '汕头', '松岗', '深圳', '广西'];
+        document.querySelector("#valueSearch").addEventListener("keydown", function (e) {
+            if (e.keyCode === 13) {
+                $(".content-body").hide();
+                let val = e.target.value
+                console.log(val);
+
+                oSearchResult.items = []; // oSghy;
+                oSghy.forEach(item => {
+                    if (item.itemname.search(val) !== -1) {
+                        oSearchResult.items.push(item)
+                        //return
+                    }
+                });
+                // content.forEach(item => {
+                //   if (item.search(val) !== -1) {
+                //     window.location.hash = item
+                //     return
+                //   }
+                // })
+            }
+        })
+    </script>
+
+
+    <script>
+        function wxOpenLocation(latitude, longitude, name, address) {
+
+            wx.openLocation({
+                //当前经纬度
+                latitude: latitude,
+                longitude: longitude,
+                //位置名
+                name: name,
+                //详细地址
+                address: address,
+                //缩放级别默认28
+                scale: 28,
+                //成功打印信息
+                success: function (res) {
+                    //alert('openLocation success');
+                    console.log(res)
+                },
+                //失败打印信息
+                fail: function (err) {
+                    alert('openLocation fail:' + JSON.stringify(err));
+                    console.log(err)
+                },
+                //完成打印信息
+                complete: function (info) {
+                    //alert('openLocation complete');
+                    console.log(info)
+                },
+            })
+
+        }
+
+
+
+    </script>
+    <!-- 分享页面 -->
+    <script type="text/javascript" src="https://res2.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+    <script type="text/javascript">
+        var imgUrl = 'https://a.sx.rewifeng.net/logo.png';
+        var lineLink = 'https://a.sx.rewifeng.net/yellow/home/index.html';
+        var descContent = '党政机关，办事大厅，行政部门，公检法机关；尽在松岗黄页';
+        var shareTitle = '松岗黄页';
+        var appid = '';
+
+        $.ajax({
+            type: 'POST',
+            url: "https://wx7.gongsilu.com/shixi/jsSDKConfig/api.php", //这个地址并非通用且长期有效，请去微信官方查看文档，并自行配置
+            dataType: "json",
+            data: { url: window.location.href },
+            success: function (response) {
+                var appId = response.appId;
+                var timestamp = response.timestamp;
+                var nonceStr = response.nonceStr;
+                var signature = response.signature;
+
+                wx.config({
+                    debug: false,
+                    appId: 'wxb1fc236279647c7e',
+                    timestamp: timestamp,
+                    nonceStr: nonceStr,
+                    signature: signature,
+                    jsApiList: [
+                        'checkJsApi',
+                        'openLocation',
+                        'onMenuShareTimeline',
+                        'onMenuShareAppMessage'
+                    ]
+                });
+                wx.ready(function () {
+
+                    wx.onMenuShareTimeline({
+                        title: shareTitle, // 分享标题
+                        link: lineLink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                        imgUrl: imgUrl, // 分享图标
+                        success: function () {
+                            // 用户确认分享后执行的回调函数
+                        },
+                        cancel: function () {
+                            // 用户取消分享后执行的回调函数
+                        }
+                    });
+                    wx.onMenuShareAppMessage({
+                        title: shareTitle, // 分享标题
+                        desc: descContent, // 分享描述
+                        link: lineLink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                        imgUrl: imgUrl, // 分享图标
+                        type: '', // 分享类型,music、video或link，不填默认为link
+                        dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                        success: function () {
+                            // 用户确认分享后执行的回调函数
+
+                        },
+                        cancel: function () {
+                            // 用户取消分享后执行的回调函数
+                        }
+                    });
+                });
+            },
+            error: function (response) {
+                window.parent.growl("删除失败[" + response.responseText + "]!", "error");
+            }
+        });
+    </script>
+</body>
+
+</html>

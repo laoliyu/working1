@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>商家服务</title>
+    <link rel="stylesheet" href="./shop.css">
+    <script src="https://cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="life">
+        <!-- 头部的图片 -->
+        <div class="lunbo">
+            <div class="lunbo-pic">
+              <image class="pic" src="./images/chihe.jpg"></image>
+            </div>
+          </div>
+        <!-- 松岗微生活 -->
+       
+        <div class="content-body1">
+            <!-- 内容的第一部分 -->
+            <div class="hd content-bd1">
+                <div class="content-lf">
+                    <a href="./second/often.html" class="lf">
+                        <div class="lf-pic">
+                            <image class="pic" src="./images/lvyou.png"></image>
+                        </div>
+                        <div class="lf-decr">
+                            <span class="name">旅游出行</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="content-rg">
+                    <a href="./second/govermet.html" class="rg">
+                        <div class="rg-pic">
+                            <image class="pic" src="./images/shebao.png"></image>
+                        </div>
+                        <div class="rg-decr">
+                            <span class="name">专业机构</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="hd content-bd1">
+                <div class="content-lf">
+                    <a href="./second/hospital.html" class="lf">
+                        <div class="lf-pic">
+                            <image class="pic" src="./images/huoche.png"></image>
+                        </div>
+                        <div class="lf-decr">
+                            <span class="name">汽车服务</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="content-rg">
+                    <a href="./second/school.html" class="rg">
+                        <div class="rg-pic">
+                            <image class="pic" src="./images/meishi.png"></image>
+                        </div>
+                        <div class="rg-decr">
+                            <span class="name">餐饮美食</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="hd content-bd1">
+                <div class="content-lf">
+                    <a href="./second/life.html" class="lf">
+                        <div class="lf-pic">
+                            <image class="pic" src="./images/jiaoyu.png"></image>
+                        </div>
+                        <div class="lf-decr">
+                            <span class="name">教育培训</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="content-rg">
+                    <a href="./second/shop.html" class="rg">
+                        <div class="rg-pic">
+                            <image class="pic" src="./images/gouwu.png"></image>
+                        </div>
+                        <div class="rg-decr">
+                            <span class="name">购物广场</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="hd content-bd1">
+                    <div class="content-lf">
+                        <a href="./second/life.html" class="lf">
+                            <div class="lf-pic">
+                                <image class="pic" src="./images/meinong.png"></image>
+                            </div>
+                            <div class="lf-decr">
+                                <span class="name">美容健康</span>
+                            </div>
+                        </a>
+                    </div>
+    
+                    <div class="content-rg">
+                        <a href="./second/shop.html" class="rg">
+                            <div class="rg-pic">
+                                <image class="pic" src="./images/yule.png"></image>
+                            </div>
+                            <div class="rg-decr">
+                                <span class="name">休闲娱乐</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+        </div>
+        <div class="bd-footer">
+                <image class="footer" src="./images/logo.png"  />
+                  
+                松岗微生活版权所有
+              </div>
+    </div>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/swipe/2.0.0/swipe.js'></script>
+    <script>
+        $(function () {
+            $(".wraps img:not(:first)").hide();
+            var index = 0;
+            var s = $(".wraps img").length;
+            var auto;
+            for (var i = 1; i <= s; i++) {
+                $(".page").append("<span></span>");
+            }
+            $(".page span:first").addClass("current");
+            $(".page span").on("click", function () {
+                index = $(this).index();
+                move();
+            });
+            function autos() {
+                auto = setInterval(function () {
+                    index++;
+                    if (index == s) {
+                        index = 0;
+                    }
+                    move();
+                }, 3000);
+            }
+            autos();
+            function move() {
+                $(".page span").eq(index).addClass("current").siblings().removeClass('current');
+                $(".wraps img").eq(index).stop(true, true).fadeIn().siblings().stop(true, true).fadeOut();
+            }
+            $("#left").click(function () {
+                clearInterval(auto);
+                index--;
+                if (index <= -1) {
+                    index = s - 1;
+                }
+                move();
+                autos();
+            });
+            $("#right").click(function () {
+                clearInterval(auto);
+                index++;
+                if (index >= s) {
+                    index = 0;
+                }
+                move();
+                autos();
+            });
+            $(".wraps img, .page span").mouseover(function () {
+                clearInterval(auto);
+            }).mouseout(function () {
+                autos();
+            });
+        });
+    </script>
+    <!-- 分享页面 -->
+    <script type="text/javascript" src="https://res2.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+    <script type="text/javascript">
+        var imgUrl = 'https://a.sx.rewifeng.net/logo.png';
+        var lineLink = 'https://a.sx.rewifeng.net/yellow/home/second/shop.html';
+        var descContent = '商业服务，旅游出行，专业机构，汽车服务，餐饮美食，教育培训等；尽在松岗黄页';
+        var shareTitle = '松岗黄页';
+        var appid = '';
+
+        $.ajax({
+            type: 'POST',
+            url: "https://wx7.gongsilu.com/shixi/jsSDKConfig/api.php", //这个地址并非通用且长期有效，请去微信官方查看文档，并自行配置
+            dataType: "json",
+            data: { url: window.location.href },
+            success: function (response) {
+                var appId = response.appId;
+                var timestamp = response.timestamp;
+                var nonceStr = response.nonceStr;
+                var signature = response.signature;
+
+                wx.config({
+                    debug: false,
+                    appId: 'wxb1fc236279647c7e',
+                    timestamp: timestamp,
+                    nonceStr: nonceStr,
+                    signature: signature,
+                    jsApiList: [
+                        'checkJsApi',
+                        'onMenuShareTimeline',
+                        'onMenuShareAppMessage'
+                    ]
+                });
+                wx.ready(function () {
+
+                    wx.onMenuShareTimeline({
+                        title: shareTitle, // 分享标题
+                        link: lineLink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                        imgUrl: imgUrl, // 分享图标
+                        success: function () {
+                            // 用户确认分享后执行的回调函数
+                        },
+                        cancel: function () {
+                            // 用户取消分享后执行的回调函数
+                        }
+                    });
+                    wx.onMenuShareAppMessage({
+                        title: shareTitle, // 分享标题
+                        desc: descContent, // 分享描述
+                        link: lineLink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                        imgUrl: imgUrl, // 分享图标
+                        type: '', // 分享类型,music、video或link，不填默认为link
+                        dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                        success: function () {
+                            // 用户确认分享后执行的回调函数
+
+                        },
+                        cancel: function () {
+                            // 用户取消分享后执行的回调函数
+                        }
+                    });
+                });
+            },
+            error: function (response) {
+                window.parent.growl("删除失败[" + response.responseText + "]!", "error");
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>社康中心</title>
+    <link rel="stylesheet" href="../demo.css">
+    <script src="https://cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+
+<body>
+    <div class="jd_header">
+        <a href="./hospital.html" class="second">
+            <div class="back-r">
+                <image class="l-pic" src="./images/back.png"></image>
+
+            </div>
+        </a>
+        <input type="search" class="header_search" id="valueSearch" placeholder="输入关键字搜索">
+        <i class="header_glass"></i>
+        <a href="../index.html" class="first">
+            <div class="back-l">
+
+                <image class="r-pic" src='./images/first.png' atr="返回上层页面"></image>
+            </div>
+        </a>
+    </div>
+    <div id="eAll" class="all">
+        <!-- 第一张图片 -->
+
+        <!-- <input type="text" id="valueSearch"> -->
+        <!-- 下面打电话的 -->
+        <block v-for="item in items" :key="item.id">
+            <div class="body-tel">
+                <div class="tel-left">
+                    <!-- <span class="name" :onclick="wxOpenLocation('{{item.latitude}}','{{item.longitude}}' ,'人为峰','广东省深圳市宝安区松岗街道山美新村')"> -->
+
+
+                    <span class="num">{{ item.tel }}
+                    </span>
+                    <span class="name">
+                        {{item.itemname}}</span>
+                </div>
+                <div class="tel-right">
+                    <!-- <a v-bind="{{href:'tel':'item.tel'}}"> -->
+                    <a :href='"tel:" + item.tel'>
+                        <div class="anniu">
+                            一键拨号
+                        </div>
+                    </a>
+                    <div class="dao1">
+                        <span class="dao" v-bind="{onclick: 'wxOpenLocation('  + item.latitude   
+              + ',' +  item.longitude 
+              + ',' + '\''  + item.name + '\''  
+              + ',' + '\''  + item.address + '\''  
+              + ')'}">
+                            一键导航</span>
+                    </div>
+                </div>
+            </div>
+        </block>
+        <div class="bd-footer">
+                <image class="footer" src="./images/logo.png"  />
+                  
+                松岗微生活版权所有
+              </div>
+    </div>
+    <script>
+        var oSghy = [
+            {
+                tel: '27068880',
+                latitude: '22.765308',
+                longitude: '113.879442',
+                name: "东方社康中心",
+                address: "深圳市宝安区松岗东方大田洋工业区田洋北一路",
+                itemname: "东方社康中心"
+
+            },
+            {
+                tel: '27711709',
+                latitude: '22.766840',
+                longitude: '113.844408',
+                name: "居委会社康中心",
+                address: "松岗爱国七街1号",
+                itemname: "居委会社康中心"
+
+            },
+            {
+                tel: '27137359',
+                latitude: '22.774714',
+                longitude: '113.822830',
+                name: "朗下社康中心",
+                address: "松岗朗下居委会旁",
+                itemname: "朗下社康中心"
+
+            },
+            {
+                tel: '27138336',
+                latitude: '22.773516',
+                longitude: '113.817801',
+                name: "江边社康中心",
+                address: "松岗街道江边居委北一巷一号",
+                itemname: "江边社康中心"
+
+            },
+
+            {
+                tel: '27716767',
+                latitude: '22.775341',
+                longitude: '113.831813',
+                name: "沙浦社康中心",
+                address: "松岗沙浦社区一巷1号",
+                itemname: "沙浦社康中心"
+
+            },
+            {
+                tel: '27052127',
+                latitude: '22.775499',
+                longitude: '113.824968',
+                name: "沙浦围社康中心",
+                address: "松岗沙浦围居委会旁",
+                itemname: "沙浦围社康中心"
+
+            },
+            {
+                tel: '27066347',
+                latitude: '22.772500',
+                longitude: '113.835440',
+                name: "溪头社康中心",
+                address: "溪头第八工业区东四巷9号",
+                itemname: "溪头社康中心"
+
+            },
+            {
+                tel: '27056825',
+                latitude: '22.750167',
+                longitude: '113.848910',
+                name: "潭头社康中心",
+                address: "松岗潭盛新村10号",
+                itemname: "潭头社康中心"
+
+            },
+
+            // 
+            {
+                tel: '27053432',
+                latitude: '22.799671',
+                longitude: '113.877190',
+                name: "碧头社康中心",
+                address: "碧头综合市场旁",
+                itemname: "碧头社康中心"
+
+            },
+            {
+                tel: '33925080',
+                latitude: '22.763905',
+                longitude: '113.837231',
+                name: "红星社康中心",
+                address: "松岗街道松瑞路格布段",
+                itemname: "红星社康中心"
+
+            },
+            {
+                tel: '27538744',
+                latitude: '22.766160',
+                longitude: '113.853319',
+                name: "集苑社康中心",
+                address: "松岗居乐苑",
+                itemname: "集苑社康中心"
+
+            },
+
+
+        ];
+        var oSearchResult = { items: oSghy };
+        var app = new Vue({
+            el: '#eAll',
+            data: oSearchResult  //{items: oSearchResult}
+
+        })
+    </script>
+    <script>
+        // var content = ['江西', '湖北', '湖南', '宝安区域管局', '广州', '汕头', '松岗', '深圳', '广西'];
+        document.querySelector("#valueSearch").addEventListener("keydown", function (e) {
+            if (e.keyCode === 13) {
+                $(".content-body").hide();
+                let val = e.target.value
+                console.log(val);
+
+                oSearchResult.items = []; // oSghy;
+                oSghy.forEach(item => {
+                    if (item.itemname.search(val) !== -1) {
+                        oSearchResult.items.push(item)
+                        //return
+                    }
+                });
+                // content.forEach(item => {
+                //   if (item.search(val) !== -1) {
+                //     window.location.hash = item
+                //     return
+                //   }
+                // })
+            }
+        })
+    </script>
+
+
+    <script>
+        function wxOpenLocation(latitude, longitude, name, address) {
+
+            wx.openLocation({
+                //当前经纬度
+                latitude: latitude,
+                longitude: longitude,
+                //位置名
+                name: name,
+                //详细地址
+                address: address,
+                //缩放级别默认28
+                scale: 28,
+                //成功打印信息
+                success: function (res) {
+                    //alert('openLocation success');
+                    console.log(res)
+                },
+                //失败打印信息
+                fail: function (err) {
+                    alert('openLocation fail:' + JSON.stringify(err));
+                    console.log(err)
+                },
+                //完成打印信息
+                complete: function (info) {
+                    //alert('openLocation complete');
+                    console.log(info)
+                },
+            })
+
+        }
+
+
+
+    </script>
+    <!-- 分享页面 -->
+    <script type="text/javascript" src="https://res2.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+    <script type="text/javascript">
+        var imgUrl = 'https://a.sx.rewifeng.net/logo.png';
+        var lineLink = 'https://a.sx.rewifeng.net/yellow/home/index.html';
+        var descContent = '党政机关，办事大厅，行政部门，公检法机关；尽在松岗黄页';
+        var shareTitle = '松岗黄页';
+        var appid = '';
+
+        $.ajax({
+            type: 'POST',
+            url: "https://wx7.gongsilu.com/shixi/jsSDKConfig/api.php", //这个地址并非通用且长期有效，请去微信官方查看文档，并自行配置
+            dataType: "json",
+            data: { url: window.location.href },
+            success: function (response) {
+                var appId = response.appId;
+                var timestamp = response.timestamp;
+                var nonceStr = response.nonceStr;
+                var signature = response.signature;
+
+                wx.config({
+                    debug: false,
+                    appId: 'wxb1fc236279647c7e',
+                    timestamp: timestamp,
+                    nonceStr: nonceStr,
+                    signature: signature,
+                    jsApiList: [
+                        'checkJsApi',
+                        'openLocation',
+                        'onMenuShareTimeline',
+                        'onMenuShareAppMessage'
+                    ]
+                });
+                wx.ready(function () {
+
+                    wx.onMenuShareTimeline({
+                        title: shareTitle, // 分享标题
+                        link: lineLink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                        imgUrl: imgUrl, // 分享图标
+                        success: function () {
+                            // 用户确认分享后执行的回调函数
+                        },
+                        cancel: function () {
+                            // 用户取消分享后执行的回调函数
+                        }
+                    });
+                    wx.onMenuShareAppMessage({
+                        title: shareTitle, // 分享标题
+                        desc: descContent, // 分享描述
+                        link: lineLink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                        imgUrl: imgUrl, // 分享图标
+                        type: '', // 分享类型,music、video或link，不填默认为link
+                        dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                        success: function () {
+                            // 用户确认分享后执行的回调函数
+
+                        },
+                        cancel: function () {
+                            // 用户取消分享后执行的回调函数
+                        }
+                    });
+                });
+            },
+            error: function (response) {
+                window.parent.growl("删除失败[" + response.responseText + "]!", "error");
+            }
+        });
+    </script>
+</body>
+
+</html>
